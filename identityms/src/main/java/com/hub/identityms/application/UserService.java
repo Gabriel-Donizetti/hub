@@ -14,11 +14,17 @@ public class UserService {
     private UserRepository repository;
 
     public ResponseEntity login(LoginDto req) {
+        return null;
     }
 
     public ResponseEntity register(RegisterDto req) {
+
+        return null;
     }
 
     public ResponseEntity getUser(String id) {
+
+        return null;
+
     }
 }
