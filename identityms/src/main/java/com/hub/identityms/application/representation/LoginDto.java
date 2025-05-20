@@ -1,12 +1,17 @@
 package com.hub.identityms.application.representation;
 
 import com.hub.identityms.domain.EmailType;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-@Getter
-@Setter
-public class LoginDto {
-    private EmailType email;
-    private String password;
+public record LoginDto(
+
+        @NotBlank
+        @NotNull
+        EmailType email,
+
+        @NotBlank
+        @NotNull
+        String password
+) {
 }

@@ -2,6 +2,7 @@ package com.hub.identityms.application;
 
 import com.hub.identityms.application.representation.LoginDto;
 import com.hub.identityms.application.representation.RegisterDto;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,12 +14,12 @@ public class UserController {
     private UserService service;
 
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody RegisterDto req){
+    public ResponseEntity register(@Valid @RequestBody RegisterDto req){
         return service.register(req);
     }
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody LoginDto req){
+    public ResponseEntity login(@Valid @RequestBody LoginDto req){
         return service.login(req);
     }
 

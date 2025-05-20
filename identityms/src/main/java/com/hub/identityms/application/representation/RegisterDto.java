@@ -2,17 +2,31 @@ package com.hub.identityms.application.representation;
 
 import com.hub.identityms.domain.EmailType;
 import com.hub.identityms.domain.UserRole;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-@Getter
-@Setter
-public class RegisterDto {
+public record RegisterDto(
 
-    private String name;
-    private String identifier;
-    private EmailType email;
-    private String password;
-    private UserRole role;
+        @NotBlank
+        @NotNull
+        String name,
 
+        @NotBlank
+        @NotNull
+        String identifier,
+
+        @NotBlank
+        @NotNull
+        EmailType email,
+
+        @NotBlank
+        @NotNull
+        String password,
+
+        @NotBlank
+        @NotNull
+        UserRole role
+
+) {
+    //TODO: fazer metodo toEntity
 }

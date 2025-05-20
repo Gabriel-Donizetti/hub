@@ -35,6 +35,10 @@ public class Users implements UserDetails {
     @NotNull
     private String identifier;
 
+    @NotBlank
+    @NotNull
+    private String segment;
+
     @NotNull
     @NotBlank
     private String name;
@@ -50,6 +54,8 @@ public class Users implements UserDetails {
     private String password;
 
     private UserRole role;
+
+    private Long companyId;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
