@@ -1,6 +1,5 @@
 package com.hub.companyms.application;
 
-import com.hub.companyms.application.representation.AdminDto;
 import com.hub.companyms.application.representation.CompanyDto;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,27 +14,27 @@ public class CompanyController {
     private CompanyService service;
 
     @PostMapping("/create")
-    public ResponseEntity createCompany(@Valid @RequestBody CompanyDto req) {
+    public ResponseEntity<?> createCompany(@Valid @RequestBody CompanyDto req) throws Exception {
         return service.createCompany(req);
     }
 
     @PutMapping("/update")
-    public ResponseEntity updateCompany(@Valid @RequestBody CompanyDto req){
+    public ResponseEntity<?> updateCompany(@Valid @RequestBody CompanyDto req) throws Exception {
         return service.update(req);
     }
 
     @PostMapping("/logo")
-    public ResponseEntity saveLogo(@RequestParam("file") MultipartFile file, @RequestParam("company") Long id) {
+    public ResponseEntity<?> saveLogo(@RequestParam("file") MultipartFile file, @RequestParam("company") Long id) throws Exception {
         return service.saveLogo(file, id);
     }
 
     @PutMapping("/logo/update")
-    public ResponseEntity updateLogo(@RequestParam("file") MultipartFile file, @RequestParam("company") Long id) {
+    public ResponseEntity<?> updateLogo(@RequestParam("file") MultipartFile file, @RequestParam("company") Long id) throws Exception {
         return service.updateLogo(file, id);
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity deleteCompany(@RequestParam("company") Long id){
+    public ResponseEntity<?> deleteCompany(@RequestParam("company") Long id) throws Exception {
         return service.delete(id);
     }
 
