@@ -19,7 +19,7 @@ public class CompanyService {
     @Autowired
     private CompanyRepository repository;
 
-    public ResponseEntity<?> createCompany(@Valid CompanyDto req) {
+    public ResponseEntity<?> createCompany(CompanyDto req) {
         if (repository.findByName(req.name())) {
             throw new DuplicateKeyException("Company with name: " + req.name() + " already exists");
         }
